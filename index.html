@@ -186,6 +186,27 @@
             text-align: center;
         }
 
+        .download-button {
+            display: inline-block;
+            background: var(--accent-color);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            text-decoration: none;
+            font-weight: 500;
+            margin-top: 1.5rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .download-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+        }
+
+        .resume-download {
+            margin-top: 2rem;
+        }
+
         footer {
             background: var(--section-bg);
             padding: 2rem 0;
@@ -217,23 +238,8 @@
                 transform: translateX(-50%);
             }
 
-            .download-button {
-                display: inline-block;
-                background: var(--accent-color);
-                color: white;
-                padding: 0.75rem 1.5rem;
-                border-radius: 9999px;
-                text-decoration: none;
-                font-weight: 500;
-                margin-top: 1.5rem;
-                transition: transform 0.2s;
-            }
-
-            .download-button:hover {
-                transform: translateY(-2px);
-            }            
             .resume-download {
-                margin-top: 2rem;
+                text-align: center;
             }
         }
     </style>
@@ -241,7 +247,7 @@
 <body>
     <nav>
         <div class="nav-container">
-            <a href="#" class="logo">AP</a>
+            <a href="#" class="logo">JD</a>
             <div class="nav-links">
                 <a href="#about">About</a>
                 <a href="#projects">Projects</a>
@@ -254,7 +260,7 @@
     <header>
         <div class="container hero">
             <div class="hero-content">
-                <h1>Ani Pensioner</h1>
+                <h1>John Doe</h1>
                 <p>Software Developer specializing in creating beautiful, functional, and user-friendly applications.</p>
             </div>
             <img src="https://via.placeholder.com/600x400" alt="Profile" class="profile-img">
@@ -267,7 +273,7 @@
             <p>I'm a passionate software developer with a keen eye for design and a love for creating seamless user experiences. With expertise in both frontend and backend development, I bring ideas to life through clean, efficient code.</p>
             <div class="resume-download">
                 <a href="files/resume.pdf" class="download-button">Download Resume</a>
-            </div>            
+            </div>
         </div>
     </section>
 
