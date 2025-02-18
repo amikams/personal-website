@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- Previous head content remains the same until the style tag -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>John Doe - Portfolio</title>
     <style>
-        /* Previous CSS remains the same until nav styles */
         :root {
             --bg-color: #ffffff;
             --text-color: #1a1a1a;
@@ -26,52 +24,19 @@
             line-height: 1.7;
             color: var(--text-color);
             background: var(--bg-color);
-            overflow-x: hidden; /* Prevent horizontal scroll */
         }
 
-        /* Updated header styles */
         header {
-            padding: 8rem 1rem 4rem 1rem; /* Increased top padding for fixed nav */
+            padding: 6rem 2rem;
             background: var(--section-bg);
-            margin-top: 0; /* Remove any top margin */
         }
 
         .container {
-            width: 100%;
             max-width: 1024px;
             margin: 0 auto;
-            padding: 0 1rem; /* Reduced padding on mobile */
+            padding: 0 2rem;
         }
 
-        /* Updated navigation styles */
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95); /* More opaque background */
-            backdrop-filter: blur(8px);
-            padding: 1rem 0;
-            z-index: 1000;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1); /* Subtle shadow */
-        }
-
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1024px;
-            margin: 0 auto;
-            padding: 0 1rem;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 1.5rem; /* Use gap instead of margins */
-        }
-
-        /* Updated hero section styles */
         .hero {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -80,39 +45,118 @@
         }
 
         .hero-content h1 {
-            font-size: clamp(2rem, 5vw, 3.5rem); /* Responsive font size */
+            font-size: 3.5rem;
             line-height: 1.2;
             margin-bottom: 1.5rem;
             font-weight: 700;
         }
 
         .hero-content p {
-            font-size: clamp(1rem, 3vw, 1.25rem); /* Responsive font size */
+            font-size: 1.25rem;
             color: #4b5563;
             margin-bottom: 2rem;
         }
 
-        /* Updated section styles */
-        section {
-            padding: 4rem 0; /* Reduced padding */
-            position: relative; /* For better spacing control */
+        .profile-img {
+            width: 100%;
+            height: auto;
+            border-radius: 1rem;
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
         }
 
-        /* Updated project grid styles */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+            padding: 1rem 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1024px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-weight: 700;
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            margin-left: 2rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        section {
+            padding: 6rem 0;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -0.5rem;
+            width: 3rem;
+            height: 0.25rem;
+            background: var(--accent-color);
+            border-radius: 0.125rem;
+        }
+
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
-            margin-top: 2rem;
+            margin-top: 3rem;
         }
 
-        /* Updated skills container styles */
+        .project-card {
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 1rem;
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
         .skills-container {
             display: flex;
             flex-wrap: wrap;
             gap: 1rem;
             margin-top: 2rem;
-            justify-content: flex-start;
         }
 
         .skill-tag {
@@ -122,66 +166,71 @@
             border-radius: 9999px;
             font-weight: 500;
             transition: transform 0.2s;
-            flex: 0 1 auto; /* Don't grow, can shrink, auto basis */
         }
 
-        /* Updated contact grid styles */
+        .skill-tag:hover {
+            transform: scale(1.05);
+        }
+
         .contact-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .contact-card {
+            padding: 2rem;
+            background: var(--section-bg);
+            border-radius: 1rem;
+            text-align: center;
+        }
+
+        .download-button {
+            display: inline-block;
+            background: var(--accent-color);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            text-decoration: none;
+            font-weight: 500;
+            margin-top: 1.5rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .download-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+        }
+
+        .resume-download {
             margin-top: 2rem;
         }
 
-        /* Enhanced mobile styles */
+        footer {
+            background: var(--section-bg);
+            padding: 2rem 0;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
         @media (max-width: 768px) {
-            body {
-                font-size: 16px; /* Ensure readable font size on mobile */
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
             }
 
-            nav {
-                padding: 0.75rem 0;
+            .hero-content h1 {
+                font-size: 2.5rem;
             }
 
             .nav-container {
                 flex-direction: column;
-                gap: 0.75rem;
-            }
-
-            .nav-links {
-                flex-wrap: wrap;
-                justify-content: center;
                 gap: 1rem;
             }
 
             .nav-links a {
-                margin: 0;
-                font-size: 0.9rem;
-            }
-
-            .hero {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-                text-align: center;
-            }
-
-            .hero-content {
-                order: 1; /* Move content below image on mobile */
-            }
-
-            .profile-img {
-                order: 0; /* Move image above content on mobile */
-                max-width: 300px; /* Limit image size on mobile */
-                margin: 0 auto; /* Center image */
-            }
-
-            section {
-                padding: 3rem 0;
-            }
-
-            h2 {
-                font-size: 1.75rem;
-                text-align: center;
+                margin: 0 1rem;
             }
 
             h2::after {
@@ -189,69 +238,114 @@
                 transform: translateX(-50%);
             }
 
-            .skills-container {
-                justify-content: center;
-            }
-
-            .contact-grid {
-                gap: 1rem;
-            }
-
-            .project-card {
-                margin: 0 auto;
-                max-width: 400px;
-            }
-
-            .contact-card {
-                padding: 1.5rem;
-            }
-
             .resume-download {
                 text-align: center;
-                margin-top: 2rem;
-            }
-
-            .download-button {
-                width: 100%;
-                max-width: 300px;
-                text-align: center;
-            }
-        }
-
-        /* Small mobile devices */
-        @media (max-width: 480px) {
-            header {
-                padding: 6rem 1rem 3rem 1rem;
-            }
-
-            .container {
-                padding: 0 1rem;
-            }
-
-            .hero-content h1 {
-                font-size: 2rem;
-            }
-
-            .skill-tag {
-                width: 100%;
-                text-align: center;
-            }
-
-            .project-img {
-                height: 180px;
-            }
-        }
-
-        /* Fix for older iOS Safari */
-        @supports (-webkit-touch-callout: none) {
-            .nav-container {
-                padding-bottom: env(safe-area-inset-bottom);
             }
         }
     </style>
 </head>
-<!-- Rest of the HTML remains the same -->
 <body>
-    <!-- Previous body content remains exactly the same -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">JD</a>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#skills">Skills</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <header>
+        <div class="container hero">
+            <div class="hero-content">
+                <h1>John Doe</h1>
+                <p>Software Developer specializing in creating beautiful, functional, and user-friendly applications.</p>
+            </div>
+            <img src="https://via.placeholder.com/600x400" alt="Profile" class="profile-img">
+        </div>
+    </header>
+
+    <section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <p>I'm a passionate software developer with a keen eye for design and a love for creating seamless user experiences. With expertise in both frontend and backend development, I bring ideas to life through clean, efficient code.</p>
+            <div class="resume-download">
+                <a href="files/resume.pdf" class="download-button">Download Resume</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <h2>Featured Projects</h2>
+            <div class="projects-grid">
+                <article class="project-card">
+                    <img src="https://via.placeholder.com/400x200" alt="Project 1" class="project-img">
+                    <div class="project-content">
+                        <h3>E-Commerce Platform</h3>
+                        <p>A full-stack e-commerce solution with real-time inventory management and secure payment processing.</p>
+                    </div>
+                </article>
+                <article class="project-card">
+                    <img src="https://via.placeholder.com/400x200" alt="Project 2" class="project-img">
+                    <div class="project-content">
+                        <h3>Task Management App</h3>
+                        <p>A React-based task management application with cloud synchronization and team collaboration features.</p>
+                    </div>
+                </article>
+                <article class="project-card">
+                    <img src="https://via.placeholder.com/400x200" alt="Project 3" class="project-img">
+                    <div class="project-content">
+                        <h3>Portfolio Generator</h3>
+                        <p>An automated portfolio generation tool that helps developers showcase their work effectively.</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <h2>Skills & Expertise</h2>
+            <div class="skills-container">
+                <span class="skill-tag">JavaScript</span>
+                <span class="skill-tag">React</span>
+                <span class="skill-tag">Node.js</span>
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">AWS</span>
+                <span class="skill-tag">Docker</span>
+                <span class="skill-tag">UI/UX Design</span>
+                <span class="skill-tag">MongoDB</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>Get in Touch</h2>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <h3>Email</h3>
+                    <p>john.doe@example.com</p>
+                </div>
+                <div class="contact-card">
+                    <h3>LinkedIn</h3>
+                    <p>linkedin.com/in/johndoe</p>
+                </div>
+                <div class="contact-card">
+                    <h3>GitHub</h3>
+                    <p>github.com/johndoe</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 John Doe. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>
